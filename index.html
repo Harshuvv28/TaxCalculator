@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="path/to/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="containers">
+        <h1>Tax Calculator</h1>
+        <form id="taxForm">
+            <div class="form-group" style="margin-bottom: 0;">
+                <div class="quest">
+                    <label for="grossIncome">Enter gross annual income</label>
+                    <div class="toolti"><img src="question-line.png" />
+                        <span class="tooltiptext questarrow leftArrow"> Gross Annual Income is your total salary in a
+                            year without
+                            any
+                            deductions</span>
+                    </div>
+                </div>
+                <div class="input-container">
+                    <input type="text" placeholder="Enter gross annual income" id="grossIncome" class="form-control"
+                        required>
+                    <div class="toolti">
+                        <!-- <div class="wrap"> -->
+                        <img src="error-warning-line.png" class="error-icon" id="grossError" />
+                        <span class="tooltiptext xyz rightArrow">Please enter number only</span>
+                        <!-- </div> -->
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 0;">
+                <div class="input-container">
+                    <div class="quest">
+                        <label for="extraIncome">Enter extra income</label>
+                        <div class="toolti"><img src="question-line.png" />
+                            <span class="tooltiptext leftArrow">Extra Income is your income that is not included in your
+                                gross
+                                annual income.</span>
+                        </div>
+                    </div>
+                    <input type="text" id="extraIncome" class="form-control"
+                        placeholder="Enter extra income from other source" required>
+                    <div class="toolti">
+                        <!-- <div class="wrap"> -->
+                        <img src="error-warning-line.png" class="error-icon" id="extraError" />
+                        <span class="tooltiptext xyz rightArrow">Please enter number only</span>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="quest">
+                    <label for="age">Enter age group</label>
+                    <div class="toolti"><img src="question-line.png" />
+                        <span class="tooltiptext leftArrow">
+                            <p>Income over 8 (>) Lakhs, the amount over 8 Lakhs is taxed
+                                at</p>
+                            <ul class="list">
+                                <li>30% for people with age < 40 </li>
+                                <li>40% for people with age ≥ 40 but < 60 </li>
+                                <li> 10% for people with age ≥ 60 </li>
+                            </ul>
+                        </span>
+                    </div>
+                </div>
+                <select id="age" class="form-control" aria-placeholder="Select your age group" required>
+                    <option value="30">&lt;40</option>
+                    <option value="44">&ge; 40 &lt;60</option>
+                    <option value="61">&ge;60</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="quest">
+                    <div class="input-container">
+                        <label for="deductions">Enter total applicabe deductions</label>
+                        <div class="toolti"><img src="question-line.png" />
+                            <span class="tooltiptext leftArrow">
+                                Deductions are expenses that are not included in your gross annual income.
+                            </span>
+                        </div>
+                        <input type="text" id="deductions" class="form-control"
+                            placeholder="Add total applicabe deductions" required>
+                        <div class="toolti">
+                            <!-- <div class="wrap"> -->
+                            <img src="error-warning-line.png" class="error-icon" id="deductionError" />
+                            <span class="tooltiptext xyz rightArrow">Please enter number only</span>
+                            <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary submitbt" style="background-color: #6559f5;">Submit
+
+                </button>
+        </form>
+    </div>
+
+    <div id="taxModal" class="modal">
+        <div class="modal-content">
+            <h2>Your overall income will be</h2>
+            <div id="taxResult"></div>
+            <button type="button" class="btn btn-primary close clear"
+                style="font-weight: 300; font-size: 18px;padding: 10px 20px; color: white; opacity: 10; background-color: #6559f5;">Close</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
